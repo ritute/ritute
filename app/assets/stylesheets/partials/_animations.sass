@@ -1,0 +1,58 @@
+=animation($name, $delay: 12s, $length: infinite, $type: linear)
+  -webkit-animation: $name $delay $length $type
+  -moz-animation: $name $delay $length $type
+  -o-animation: $name $delay $length $type
+  -ms-animation: $name $delay $length $type
+  -khtml-animation: $name $delay $length $type
+  animation: $name $delay $length $type
+
+=rotatePetals($engine)
+  @if $engine
+    from
+      -#{$engine}-transform: rotate(0deg)
+    50%
+      -#{$engine}-transform: rotate(10deg)
+    to
+      -#{$engine}-transform: rotate(0deg)
+  @else
+    from
+      transform: rotate(0deg)
+    50%
+      transform: rotate(10deg)
+    to
+      transform: rotate(0deg)
+
+=rotateInner($engine)
+  @if $engine
+    from
+      -#{$engine}-transform: rotate(0deg)
+    to
+      -#{$engine}-transform: rotate(360deg)
+  @else
+    from
+      transform: rotate(0deg)
+    to
+      transform: rotate(360deg)
+
+=petalsOrInner($name, $engine)
+  @if $name==petals
+    +rotatePetals($engine)
+  @else if $name==inner
+    +rotateInner($engine)
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    +petalsOrInner($name, webkit)
+  @-moz-keyframes #{$name}
+    +petalsOrInner($name, moz)
+  @-o-keyframes #{$name}
+    +petalsOrInner($name, o)
+  @-ms-keyframes #{$name}
+    +petalsOrInner($name, ms)
+  @-khtml-keyframes #{$name}
+    +petalsOrInner($name, khtml)
+  @keyframes #{$name}
+    +petalsOrInner($name, nil)
+
++keyframes(petals)
++keyframes(inner)

@@ -1,0 +1,128 @@
+@import "compass/css3"
+@import partials/animations
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow)
+
+*
+  margin: 0
+  padding: 0
+
+ul
+  list-style-type: none
+  margin-bottom: 0
+
+=link-style($linkname, $img-width)
+  width: #{$img-width}px
+  background: transparent url(social/#{$linkname}.png) no-repeat 0 0
+  &:hover
+    background-image: url(social-hover/#{$linkname}.png)
+    background-color: cyan
+    +transform(scale(1.10))
+
+=play-style($linkname, $img-width)
+  width: #{$img-width}px
+  background: transparent url(playgrounds/#{$linkname}.png) no-repeat 0 0
+
+body
+  background: #000 url(background.png) repeat 0 0
+  font: 1em "PT Sans Narrow", sans-serif
+  #container
+    width: 754px
+    margin: 100px auto
+    position: relative
+    header
+      text-indent: -9999px
+      & > *
+        margin-bottom: 7px
+      h1
+        width: 369px
+        height: 152px
+        background: transparent url(ritute.png) no-repeat 0 0
+      h2
+        width: 534px
+        height: 110px
+        background: transparent url(ritabancewicz.png) no-repeat 0 0
+      h3
+        width: 754px
+        height: 110px
+        background: transparent url(title.png) no-repeat 0 0
+        margin-bottom: 15px
+      #flower
+        position: absolute
+        top: -60px
+        right: -30px
+        #flower-outer
+          width: 338px
+          height: 300px
+          background: transparent url(flower-outer.png) no-repeat 0 0
+          +animation(petals, 12s, infinite, linear)
+        #flower-inner
+          width: 56px
+          height: 54px
+          position: absolute
+          top: 123px
+          right: 140px
+          background: transparent url(flower-inner.png) no-repeat 0 0
+          +animation(inner, 12s, infinite, linear)
+    #playgrounds
+      margin-bottom: 17px
+      li
+        display: inline-block
+        text-indent: -9999px
+        margin: 0 4px
+        height: 29px
+      #web
+        +play-style(web, 48)
+        margin-left: 0
+      #mobile
+        +play-style(mobile, 66)
+      #software
+        +play-style(software, 76)
+      #engineering
+        +play-style(engineering, 92)
+      #design
+        +play-style(design, 61)
+      #networks
+        +play-style(networks, 73)
+      #entrepreneurship
+        +play-style(entrepreneurship, 126)
+    #separator
+      width: 754px
+      height: 4px
+      background: transparent url(separator.png) no-repeat 0 0
+      margin-bottom: 20px
+    #social
+      padding-left: 30px
+      li
+        display: inline-block
+        margin: 0 20px
+        height: 31px
+        +transition(all .15s linear)
+        a
+          text-indent: -9999px
+          display: block
+          height: 100%
+          width: 100%
+      #google
+        +link-style(google, 96)
+      #linkedin
+        +link-style(linkedin, 97)
+      #facebook
+        +link-style(facebook, 97)
+      #twitter
+        +link-style(twitter, 83)
+      #github
+        +link-style(github, 82)
+    footer
+      margin: auto
+      padding-top: 20px
+      text-align: center
+      .email a
+        background-color: rgba(2,2,2,.25)
+        color: #FFF
+        -webkit-transition: all .15s ease-in
+        text-decoration: none
+        padding: 0 4px
+        &:hover
+          text-decoration: none
+          background-color: cyan
+          color: #000
