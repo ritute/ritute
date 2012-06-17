@@ -26,23 +26,24 @@ body
   background: #000 url(background.png) repeat 0 0
   font: 1em "PT Sans Narrow", sans-serif
   #container
-    width: 754px
+    max-width: 754px
     margin: 100px auto
     position: relative
     header
       text-indent: -9999px
       & > *
         margin-bottom: 7px
+        +background-size(100% auto)
       h1
-        width: 369px
+        max-width: 369px
         height: 152px
         background: transparent url(ritute.png) no-repeat 0 0
       h2
-        width: 534px
+        max-width: 534px
         height: 110px
         background: transparent url(ritabancewicz.png) no-repeat 0 0
       h3
-        width: 754px
+        max-width: 754px
         height: 110px
         background: transparent url(title.png) no-repeat 0 0
         margin-bottom: 15px
@@ -86,7 +87,7 @@ body
       #entrepreneurship
         +play-style(entrepreneurship, 126)
     #separator
-      width: 754px
+      max-width: 754px
       height: 4px
       background: transparent url(separator.png) no-repeat 0 0
       margin-bottom: 20px
@@ -126,3 +127,48 @@ body
           text-decoration: none
           background-color: cyan
           color: #000
+
+// smartphone (portrait & landscape)
+@media only screen and (min-width: 320px) and (max-width: 600px)
+  #flower
+    display: none
+  body #container
+    margin: 0 auto 20px auto
+    header h3
+      margin-bottom: 2px
+    #playgrounds
+      li
+        margin: 2px 2px
+      #web
+        margin-left: 2px
+    #social
+      padding-left: 2px
+      li
+        margin: 2px 4px
+
+// smartphone (landscape)
+@media only screen and (min-width: 321px) and (max-width: 600px)
+  body #container header
+    h1
+      height: 150px
+    h2, h3
+      height: 110px
+
+@media only screen and (min-width: 321px) and (max-width: 480px)
+  body #container header
+    h2, h3
+      height: 90px
+
+@media only screen and (min-width: 321px) and (max-width: 410px)
+  body #container header
+    h2, h3
+      height: 80px
+
+// smartphone (portrait)
+@media only screen and (max-width: 320px)
+  body #container header
+    h1
+      height: 130px
+    h2, h3
+      height: 60px
+
